@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Cup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: #333;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 {
+      font-size: 24px;
+      color: #5c3d2e;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #5c3d2e;
+      font-weight: 600;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 10%;
+      background: #fef9f5;
+    }
+    .hero-text {
+      max-width: 600px;
+    }
+    .hero-text h2 {
+      font-size: 48px;
+      color: #5c3d2e;
+      margin-bottom: 20px;
+      animation: fadeUp 1.5s ease forwards;
+    }
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #555;
+      animation: fadeUp 2s ease forwards;
+    }
+    .hero-text button {
+      padding: 12px 30px;
+      background: #5c3d2e;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      font-size: 16px;
+      animation: fadeUp 2.5s ease forwards;
+    }
+    .hero-img img {
+      max-width: 500px;
+      animation: fadeRight 1.5s ease forwards;
+    }
+    .services {
+      text-align: center;
+      padding: 80px 10%;
+    }
+    .services h3 {
+      font-size: 32px;
+      color: #5c3d2e;
+      margin-bottom: 30px;
+    }
+    .service-cards {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      padding: 30px;
+      flex: 1 1 250px;
+      max-width: 300px;
+      transition: 0.3s ease;
+      animation: fadeUp 1s ease forwards;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #5c3d2e;
+    }
+    .card p {
+      font-size: 15px;
+      color: #555;
+    }
+    .products {
+      text-align: center;
+      padding: 80px 10%;
+    }
+    .products h3 {
+      font-size: 32px;
+      color: #5c3d2e;
+      margin-bottom: 30px;
+    }
+    .product-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      padding: 20px;
+      flex: 1 1 200px;
+      max-width: 240px;
+      text-align: center;
+      transition: 0.3s ease;
+      animation: fadeUp 1s ease forwards;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .product-card h5 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #5c3d2e;
+    }
+    .product-card button {
+      padding: 8px 20px;
+      background: #5c3d2e;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    footer {
+      background: #5c3d2e;
+      color: #fff;
+      padding: 40px 10%;
+      text-align: center;
+      margin-top: 60px;
+    }
+    footer p {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    @keyframes fadeUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes fadeRight {
+      from {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    /* Add this to your CSS */
+    /* Animate on scroll for each direction */
+    .animate-on-scroll {
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+    .animate-on-scroll.in-view[data-animate="up"] {
+      animation: fadeUp 1.1s ease forwards;
+    }
+    .animate-on-scroll.in-view[data-animate="right"] {
+      animation: fadeRight 1.1s ease forwards;
+    }
+    .animate-on-scroll.in-view[data-animate="left"] {
+      animation: fadeLeft 1.1s ease forwards;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>The Coffee Cup</h1>
+  <nav>
+    <a class="active" href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#products">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#"><span class="cart">🛒</span></a>
+    <button class="signup">Signup</button>
+    
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text animate-on-scroll" data-animate="right">
+    <h2>Discover The Art Of Perfect Coffee.</h2>
+    <p>Join us on a journey of taste and awaken your senses, one sip at a time.</p>
+    <button>Order Now</button>
+  </div>
+  <div class="hero-img animate-on-scroll" data-animate="left">
+    <img src="img1.jpg" alt="Coffee Cup">
+  </div>
+</section>
+
+<section class="services animate-on-scroll" data-animate="up" id="services">
+  <h3>Our Delicious Services</h3>
+  <div class="service-cards">
+    <div class="card animate-on-scroll" data-animate="right">
+      <h4>Coffee Types</h4>
+      <p>Various coffee types tailored to your taste preferences.</p>
+    </div>
+    <div class="card animate-on-scroll" data-animate="up">
+      <h4>Different Beans</h4>
+      <p>We source and roast the finest beans globally.</p>
+    </div>
+    <div class="card animate-on-scroll" data-animate="left">
+      <h4>Cold Coffee</h4>
+      <p>Refreshing cold coffee blends to satisfy your cravings.</p>
+    </div>
+  </div>
+</section>
+
+<section class="products animate-on-scroll" data-animate="up" id="products">
+  <h3>Enjoy A New Blend of Coffee Style</h3>
+  <div class="product-grid">
+    <div class="product-card animate-on-scroll" data-animate="right">
+      <img src="img2.jpg" alt="Cappuccino">
+      <h5>Cappuccino</h5>
+      <button>Buy Now</button>
+    </div>
+    <div class="product-card animate-on-scroll" data-animate="up">
+      <img src="img3.jpg" alt="Chai Latte">
+      <h5>Chai Latte</h5>
+      <button>Buy Now</button>
+    </div>
+    <div class="product-card animate-on-scroll" data-animate="left">
+      <img src="img4.jpg" alt="Macchiato">
+      <h5>Macchiato</h5>
+      <button>Buy Now</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 The Coffee Cup. All rights reserved.</p>
+  <p>Follow us on social media</p>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+      } else {
+        e.target.classList.remove('in-view');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
